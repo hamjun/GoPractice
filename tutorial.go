@@ -7,12 +7,50 @@ import (
 	//"strconv"
 )
 
+type Point struct {
+	x int32
+	y int32
+}
+
+func add(x, y int) (z, z1 int) {
+	defer fmt.Println("hello")
+	z = x + y
+	z1 = x - y
+	return
+}
+
 func main() {
+	var p1 Point = Point{1, 2}
+	fmt.Println(p1)
+
+	x := func(x int) int {
+		return x * -1
+	}(8)
+	fmt.Println(x)
+	fmt.Println(add(1, 2))
 
 	var arr [4]int
 	arr1 := []int{4, 5, 6}
 	arr1 = append(arr1, 1)
+
+	for _, element := range arr1 {
+		fmt.Printf("%d\t", element)
+	}
 	fmt.Println(arr, arr1)
+
+	var mp map[string]int = map[string]int{
+		"apple":  5,
+		"pear":   6,
+		"orange": 9,
+	}
+	delete(mp, "apple")
+
+	//check if value exists
+	val, ok := mp["pear"]
+	fmt.Println(val, ok)
+	//mp1 = make(map[string]int)
+
+	fmt.Println(mp)
 	/*
 		var num1 float64 = 8.3
 		var num2 int = 4
